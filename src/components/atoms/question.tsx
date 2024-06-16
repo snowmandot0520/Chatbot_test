@@ -1,20 +1,24 @@
-import * as React from "react";
+// Question.tsx
+import React from "react";
 
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+interface QuestionProps {
+  placeholder: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ type, ...props }, ref) => {
-    return (
-      <input
-        type={type}
-        ref={ref}
-        {...props}
-        className="w-[700px] border-2 border-blue-600 rounded-lg"
-      />
-    );
-  }
-);
-Input.displayName = "Input";
-
-export { Input };
+export const Question: React.FC<QuestionProps> = ({
+  placeholder,
+  value,
+  onChange,
+}) => {
+  return (
+    <input
+      type="text"
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+      className="border border-gray-300 px-3 py-2 rounded-md w-full focus:outline-none focus:border-blue-600"
+    />
+  );
+};

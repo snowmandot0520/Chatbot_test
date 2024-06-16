@@ -1,7 +1,4 @@
 "use client";
-import Title from "../atoms/title";
-import Button from "../atoms/button";
-import { Input } from "../atoms/question";
 import UserAction from "../molecules/userAction";
 import { useChat } from "ai/react";
 import Avatar from "../atoms/avatar";
@@ -18,20 +15,12 @@ export function Chat(props: ChatProps) {
 
   return (
     <div className="flex flex-col w-[840px] h-[700px] border-2 border-blue-600 border-dotted p-4 rounded-xl">
-      <div>
-        <div className="text-center">
-          Simple ChatGpt
-          <Title title="Simple ChatGpt" textColor="#ffffff" />
-        </div>
-        <form className="w-full flex gap-2" onSubmit={handleSubmit}>
-          <Input
-            placeholder="How can I help you?"
-            value={input}
-            onChange={handleInputChange}
-          />
-          <Button text="Result" textColor="#ffffff" backgroundColor="#0070f3" />
-        </form>
-      </div>
+      <UserAction
+        title="Simple ChatGpt"
+        input={input}
+        handleInputChange={handleInputChange}
+        handleSubmit={handleSubmit}
+      />
       <div
         className="space-y-4 overflow-y-auto flex-grow mt-5"
         style={{ scrollbarWidth: "thin" }}>
