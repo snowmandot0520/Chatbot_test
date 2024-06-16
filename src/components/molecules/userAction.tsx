@@ -21,7 +21,7 @@ const UserAction: React.FC<UserActionProps> = ({
   return (
     <div className="flex flex-col space-y-4 p-4 border border-gray-300 rounded">
       <Title title={title} textColor={titleColor} />
-      <Input />
+      <Input placeholder="Enter your question" />
       <Button
         text={buttonText}
         textColor={buttonTextColor}

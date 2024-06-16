@@ -1,35 +1,22 @@
-"use client";
+import React from "react";
+import Image from "next/image";
 
-import * as React from "react";
-import * as AvatarPrimitive from "@radix-ui/react-avatar";
+interface AvatarProps {
+  imageUrl: string; // Image URL for the avatar
+}
 
-import { cn } from "@/lib/utils";
+const Avatar: React.FC<AvatarProps> = ({ imageUrl }) => {
+  return (
+    <div className="flex items-center">
+      <Image
+        src={imageUrl}
+        alt="Avatar"
+        className="h-10 w-10 rounded-full object-cover"
+        width={100}
+        height={100}
+      />
+    </div>
+  );
+};
 
-const Avatar = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>
->(({ className, ...props }, ref) => (
-  <AvatarPrimitive.Root
-    ref={ref}
-    className={cn(
-      "relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full",
-      className
-    )}
-    {...props}
-  />
-));
-Avatar.displayName = AvatarPrimitive.Root.displayName;
-
-const AvatarImage = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Image>,
-  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>
->(({ className, ...props }, ref) => (
-  <AvatarPrimitive.Image
-    ref={ref}
-    className={cn("aspect-square h-full w-full", className)}
-    {...props}
-  />
-));
-AvatarImage.displayName = AvatarPrimitive.Image.displayName;
-
-export { Avatar, AvatarImage };
+export default Avatar;

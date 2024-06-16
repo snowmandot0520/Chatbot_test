@@ -1,12 +1,17 @@
 "use client";
 import Title from "../atoms/title";
-import { Avatar, AvatarImage } from "../atoms/avatar";
 import Button from "../atoms/button";
 import { Input } from "../atoms/question";
+import UserAction from "../molecules/userAction";
 import { useChat } from "ai/react";
+import Avatar from "../atoms/avatar";
 export interface ChatProps {}
 
 export function Chat(props: ChatProps) {
+  const botImageUrl = "/assets/image/bot.jpeg";
+
+  const userImageUrl = "/assets/image/user.jpeg";
+
   const { messages, input, handleInputChange, handleSubmit } = useChat({
     api: "/api/chat",
   });
@@ -28,31 +33,35 @@ export function Chat(props: ChatProps) {
         </form>
       </div>
       <div
-        className="space-y-4 overflow-y-auto flex-grow"
+        className="space-y-4 overflow-y-auto flex-grow mt-5"
         style={{ scrollbarWidth: "thin" }}>
         {messages.map((message) => {
           return (
             <div key={message.id} className="flex gap-2 text-slate-600 text-sm">
               {message.role === "user" && (
-                <Avatar>
-                  <AvatarImage src="/user.jpg" />
-                </Avatar>
-              )}
-
-              {message.role === "assistant" && (
-                <div className="mx-10">
-                  <Avatar>
-                    <AvatarImage src="/bot.jpg" />
-                  </Avatar>
+                <div className="flex flex-row items-center">
+                  <Avatar imageUrl={userImageUrl}></Avatar>
+                  <div className="w-[600px]">{message.content}</div>
+                  {/* <span className="text-gray-800 text-center">User</span> */}
                 </div>
               )}
 
-              <p className="leading-relaxed">
+              {message.role === "assistant" && (
+                <div className="flex flex-row items-center ml-40 ">
+                  <div className="w-[600px]">
+                    <p>{message.content}</p>
+                  </div>
+                  <Avatar imageUrl={botImageUrl}></Avatar>
+                  {/* <span className="text-gray-800">Bot</span> */}
+                </div>
+              )}
+
+              {/* <p>
                 <span className="block font-bold text-slate-700">
                   {message.role === "user" ? "User" : "Bot"}
                 </span>
-                {message.content}
-              </p>
+                <div className="w-[600px]">{message.content}</div>
+              </p> */}
             </div>
           );
         })}
