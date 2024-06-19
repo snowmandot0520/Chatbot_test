@@ -7,12 +7,13 @@ interface TitleProps {
 
 const Title: React.FC<TitleProps> = ({ title, textColor }) => {
   return (
-    <h1
+    <div
+      className=" text-2xl text-blue-600"
       style={{
         color: textColor,
       }}>
       {title}
-    </h1>
+    </div>
   );
 };
 
