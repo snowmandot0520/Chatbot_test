@@ -28,7 +28,7 @@ const ChatAction: React.FC<ChatActionProps> = ({
           {message.role === "assistant" && (
             <div className="flex flex-row items-center ml-40">
               <div className="w-[600px]">
-                <p>{message.content}</p>
+                <p>{"message.content"}</p>
               </div>
               <div className="avatar-pentagon"></div>
               <Avatar imageUrl={botImageUrl} />
