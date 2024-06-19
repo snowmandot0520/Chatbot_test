@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Chatbot",
-  description: "Simple Chatbot by Next.js",
+  description: "My Chatbot by Next.js",
 };
 
 export default function RootLayout({
