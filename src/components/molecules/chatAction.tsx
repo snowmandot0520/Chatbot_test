@@ -21,7 +21,7 @@ const ChatAction: React.FC<ChatActionProps> = ({
           {message.role === "user" && (
             <div className="flex flex-row items-center">
               <Avatar imageUrl={userImageUrl} />
-              <div className="w-[600px]">{message.content}</div>
+              <div className="w-[600px] px-2">{message.content}</div>
             </div>
           )}
 
