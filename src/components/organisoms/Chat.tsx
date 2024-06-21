@@ -1,35 +1,45 @@
-"use client";
-import UserAction from "../molecules/userAction";
-import ChatAction from "../molecules/chatAction";
-import { useChat } from "ai/react";
-export interface ChatProps { }
+import { Message } from "@/types";
+import { FC } from "react";
+import { ChatInput } from "../molecules/chatinput";
+import { ChatLoader } from "../atoms/chatloader";
+import { ChatMessage } from "../atoms/chatmessage";
+import { ResetChat } from "../atoms/resetchat";
 
-export function Chat(props: ChatProps) {
-  const botImageUrl = "/assets/image/bot.jpeg";
-  const userImageUrl = "/assets/image/user.jpeg";
+interface Props {
+  messages: Message[] | undefined;
+  loading: boolean;
+  onSend: (message: Message) => void;
+  onReset: () => void;
+}
 
-  const { messages, input, handleInputChange, handleSubmit } = useChat({
-    api: "/api/chat",
-  });
+export const Chat: FC<Props> = ({ messages, loading, onSend, onReset }) => {
+  if (!messages || !Array.isArray(messages)) {
+    return null; // or render a loading state or error message
+  }
 
   return (
-    <div>
-      <p className="text-2xl text-gray-800 text-center pb-3">
-        My Chatbot
-      </p>
-      <div className="flex flex-col w-[840px] h-[680px] border border-gray-400 p-5 rounded-xl">
-        <UserAction
-          // title="Simple ChatGpt"
-          input={input}
-          handleInputChange={handleInputChange}
-          handleSubmit={handleSubmit}
-        />
-        <ChatAction
-          messages={messages}
-          userImageUrl={userImageUrl}
-          botImageUrl={botImageUrl}
-        />
+    <>
+      <div className="flex flex-col">
+        <ResetChat onReset={onReset} />
       </div>
-    </div>
+
+      <div className="flex flex-col w-full min-h-[600px] rounded-lg px-2 sm:p-4 sm:border border-neutral-300 overflow-y-scroll">
+        {messages.map((message, index) => (
+          <div key={index} className="my-1 sm:my-1.5">
+            <ChatMessage message={message} />
+          </div>
+        ))}
+
+        {loading && (
+          <div className="my-1 sm:my-1.5">
+            <ChatLoader />
+          </div>
+        )}
+      </div>
+
+      <div className="w-full">
+        <ChatInput onSend={onSend} />
+      </div>
+    </>
   );
-}
+};
