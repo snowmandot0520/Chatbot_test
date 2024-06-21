@@ -1,4 +1,4 @@
-import { Message } from "../../../types";
+import { Message } from "src\types\index.ts";
 import { FC } from "react";
 
 interface Props {
