@@ -1,6 +1,7 @@
 'use client'
 import { Chat } from "../components/organisoms/Chat";
 import { Message } from "@/types";
+import { NextApiRequest, NextApiResponse } from "next";
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 
@@ -30,10 +31,11 @@ export default function Home() {
       }),
     });
 
-    console.log(response);
+    console.log("response is okay");
 
     if (!response.ok) {
       setLoading(false);
+      console.log("response is fault");
       throw new Error(response.statusText);
     }
 
