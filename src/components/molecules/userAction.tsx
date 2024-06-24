@@ -1,38 +1,48 @@
-// UserAction.tsx
-import React from "react";
-import Title from "../atoms/title";
-import Button from "../atoms/button";
-import { Question } from "../atoms/question"; // Adjust import path as needed
+"use client"
 
-interface UserActionProps {
-  //title: string;
-  input: string;
-  handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+import React from "react"
+import Title from "../atoms/title"
+import ResultButton from "../atoms/resultbutton"
+import QuestionInput from "../atoms/questionInput"
+
+interface IUserActionProps {
+  changeUserMessage: (userMessage: string) => void;
+  changeMessages: () => void;
+  handleSubmit: () => void;
 }
 
-const UserAction: React.FC<UserActionProps> = ({
-  //title,
-  input,
-  handleInputChange,
-  handleSubmit,
-}) => {
+const UserAction: React.FC<IUserActionProps> = (props) => {
   return (
     <div>
-      {/* <div className="text-center">
-        {title}
-        <Title title={title} textColor="#000000" />
-      </div> */}
-      <form className="w-full flex gap-2" onSubmit={handleSubmit}>
-        <Question
-          placeholder="How can I help you?"
-          value={input}
-          onChange={handleInputChange}
+      <div>
+        <Title
+          title="Simple ChatGPT"
+          textColor="#383483"
+          textSize={50}
         />
-        <Button text="Result" textColor="#ffffff" backgroundColor="#000000" />
-      </form>
+      </div>
+      <div className="flex gap-4 mb-4">
+        <span>
+          <QuestionInput
+            width={500}
+            changeUserMessage={props.changeUserMessage}
+            changeMessages={props.changeMessages}
+            handleSubmit={props.handleSubmit}
+          />
+        </span>
+        <span>
+          <ResultButton
+            buttonName="Result"
+            width={100}
+            textColor="#fff"
+            backgroundColor="#374234"
+            changeMessages={props.changeMessages}
+            handleSubmit={props.handleSubmit}
+          />
+        </span>
+      </div>
     </div>
   );
-};
+}
 
 export default UserAction;
