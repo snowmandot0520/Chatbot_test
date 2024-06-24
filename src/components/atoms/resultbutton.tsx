@@ -1,12 +1,13 @@
 "use client";
 
 import React from "react";
+import { IconArrowUp } from "@tabler/icons-react";
 
 interface IResultButtonProps {
-    buttonName: string;
-    width: number;
-    textColor: string;
-    backgroundColor: string;
+    // buttonName: string;
+    // width: number;
+    // textColor: string;
+    // backgroundColor: string;
     changeMessages: () => void;
     handleSubmit: () => void;
 }
@@ -18,18 +19,11 @@ const ResultButton: React.FC<IResultButtonProps> = (props) => {
     };
 
     return (
-        <button
-            onClick={handleClick}
-            style={{
-                padding: '10px',
-                backgroundColor: props.backgroundColor,
-                border: 'none',
-                borderRadius: '4px',
-                cursor: 'pointer'
-            }}
-        >
-            <span style={{ color: props.textColor }}>{props.buttonName}</span>
+        <button onClick={() => handleClick()}>
+            <IconArrowUp className="absolute h-6 w-6 hover:cursor-pointer rounded-full p-1 bg-blue-500 text-black hover:opacity-80" />
         </button>
+
+
     );
 };
 

@@ -17,7 +17,7 @@ const BotResponse: React.FC<IBotResponseProps> = (props) => {
             </span>
             <span className="w-[5%]">
                 <Avatar
-                    src="/bot.jpeg"
+                    src="/assets/image/bot.jpeg"
                     alt="User"
                     width={40}
                     height={40}

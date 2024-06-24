@@ -12,7 +12,7 @@ const UserQuestion: React.FC<IUserQuestionProps> = (props) => {
         <div className="flex justify-start gap-4 items-start rounded-md p-4 mb-2">
             <span className="w-[5%]">
                 <Avatar
-                    src="/user.jpeg"
+                    src="/assets/image/user.jpeg"
                     alt="User"
                     width={40}
                     height={40}

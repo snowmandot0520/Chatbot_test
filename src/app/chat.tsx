@@ -36,7 +36,7 @@ const Chatting: React.FC = () => {
         try {
             const response = await fetch('/api/openai', {
                 method: 'POST',
-                body: JSON.stringify({ messages: userMessage }),
+                body: JSON.stringify({ messages: messages }),
             });
 
             if (!response.ok) {

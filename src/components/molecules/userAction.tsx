@@ -5,6 +5,7 @@ import Title from "../atoms/title"
 import ResultButton from "../atoms/resultbutton"
 import QuestionInput from "../atoms/questionInput"
 
+
 interface IUserActionProps {
   changeUserMessage: (userMessage: string) => void;
   changeMessages: () => void;
@@ -16,8 +17,8 @@ const UserAction: React.FC<IUserActionProps> = (props) => {
     <div>
       <div>
         <Title
-          title="Simple ChatGPT"
-          textColor="#383483"
+          title="Chatbot"
+          textColor="#000000"
           textSize={50}
         />
       </div>
@@ -32,10 +33,10 @@ const UserAction: React.FC<IUserActionProps> = (props) => {
         </span>
         <span>
           <ResultButton
-            buttonName="Result"
-            width={100}
-            textColor="#fff"
-            backgroundColor="#374234"
+            // buttonName="Result"
+            // width={100}
+            // textColor="#fff"
+            // backgroundColor="#374234"
             changeMessages={props.changeMessages}
             handleSubmit={props.handleSubmit}
           />
