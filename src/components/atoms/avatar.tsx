@@ -1,22 +1,17 @@
-import React from "react";
-import Image from "next/image";
+"use client"
 
-interface AvatarProps {
-  imageUrl: string; // Image URL for the avatar
+import React from "react";
+import Image from 'next/image';
+
+interface IAvatarProps {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
 }
 
-const Avatar: React.FC<AvatarProps> = ({ imageUrl }) => {
-  return (
-    <div className="flex items-center">
-      <Image
-        src={imageUrl}
-        alt="Avatar"
-        className="h-10 w-10 rounded-full object-cover"
-        width={100}
-        height={100}
-      />
-    </div>
-  );
-};
+const Avatar: React.FC<IAvatarProps> = (props) => {
+  return <Image src={props.src} alt={props.alt} width={props.width} height={props.height} className="rounded-full" />;
+}
 
 export default Avatar;

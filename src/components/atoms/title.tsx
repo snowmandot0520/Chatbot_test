@@ -1,20 +1,21 @@
+"use client";
+
 import React from "react";
 
-interface TitleProps {
-  title: string;
+interface ITItleProps {
   textColor: string;
+  textSize: number;
+  title: string;
 }
 
-const Title: React.FC<TitleProps> = ({ title, textColor }) => {
+const TItle: React.FC<ITItleProps> = (props) => {
   return (
     <div
-      className=" text-2xl text-blue-600"
-      style={{
-        color: textColor,
-      }}>
-      {title}
+      style={{ color: `${props.textColor}`, fontSize: `${props.textSize}px` }}
+      className="text-center">
+      {props.title}
     </div>
   );
 };
 
-export default Title;
+export default TItle;
