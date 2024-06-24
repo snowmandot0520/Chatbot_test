@@ -24,6 +24,8 @@ export const Chat: FC<Props> = ({ messages, loading, onSend, onReset }) => {
       </div>
 
       <div className="flex flex-col w-full min-h-[600px] rounded-lg px-2 sm:p-4 sm:border border-neutral-300 overflow-y-scroll">
+
+
         {messages.map((message, index) => (
           <div key={index} className="my-1 sm:my-1.5">
             <ChatMessage message={message} />
@@ -37,9 +39,11 @@ export const Chat: FC<Props> = ({ messages, loading, onSend, onReset }) => {
         )}
       </div>
 
+
       <div className="w-full">
         <ChatInput onSend={onSend} />
       </div>
+
     </>
   );
 };
