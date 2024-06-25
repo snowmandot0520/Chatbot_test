@@ -32,8 +32,8 @@ const QuestionInput: React.FC<IQuestionInputProps> = (props) => {
             value={inputValue}
             onChange={handleChange}
             onKeyDown={handleKeyDown}
-            style={{ width: `${props.width}px`, padding: '10px' }}
-            className="border px-2"
+            style={{ width: `${props.width}px`, padding: '10px', height: '50px' }}
+            className="border p-3 overflow-auto rounded-xl justify-center"
         />
     );
 };

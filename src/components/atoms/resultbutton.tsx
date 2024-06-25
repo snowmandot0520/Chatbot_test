@@ -20,7 +20,7 @@ const ResultButton: React.FC<IResultButtonProps> = (props) => {
 
     return (
         <button onClick={() => handleClick()}>
-            <IconArrowUp className="absolute h-6 w-6 hover:cursor-pointer rounded-full p-1 bg-blue-500 text-black hover:opacity-80" />
+            <IconArrowUp className="absolute h-8 w-8 hover:cursor-pointer rounded-full p-1 bg-slate-600 text-black hover:opacity-80" />
         </button>
 
 

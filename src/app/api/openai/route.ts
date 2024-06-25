@@ -3,8 +3,8 @@ import axios from 'axios';
 
 export async function POST(request: NextRequest) {
     const { messages } = await request.json();
-    console.log('Received messages:', messages);
 
+    console.log('Received messages:', messages);
     try {
         const response = await axios.post(
             'https://api.openai.com/v1/chat/completions',

@@ -7,7 +7,7 @@ interface IQuestionOrAnswerProps {
 }
 
 const QuestionOrAnswer: React.FC<IQuestionOrAnswerProps> = (props) => {
-    return <div>{props.text}</div>;
+    return <div className=" text-zinc-600">{props.text}</div>;
 };
 
 export default QuestionOrAnswer;
