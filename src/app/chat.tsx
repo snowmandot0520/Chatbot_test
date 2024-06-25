@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import UserAction from "@/components/molecules/userAction";
 import ChatResult from "@/components/organisoms/chatResult";
+import TItle from "@/components/atoms/title";
 
 interface IMessage {
     user: string;
@@ -54,13 +55,14 @@ const Chatting: React.FC = () => {
     };
 
     return (
-        <div className="flex flex-col items-center">
-            <UserAction
-                changeUserMessage={changeUserMessage}
-                changeMessages={changeMessages}
-                handleSubmit={handleSubmit}
+        <div className="flex flex-col max-w-full max-h-screen items-center p-4">
+            <TItle
+                title="Chatbot"
+                textColor="#000000"
+                textSize={30}
+
             />
-            <div className="w-[1000px] p-5 h-[55vh] overflow-y-auto">
+            <div className="w-1/2 h-[600px] bg-slate-100 overflow-y-auto rounded-xl">
                 {messages.map((message: IMessage, index: number) => (
                     <ChatResult
                         key={index}
@@ -70,6 +72,11 @@ const Chatting: React.FC = () => {
                 ))}
                 <div ref={messagesEndRef} />
             </div>
+            <UserAction
+                changeUserMessage={changeUserMessage}
+                changeMessages={changeMessages}
+                handleSubmit={handleSubmit}
+            />
         </div>
     );
 };

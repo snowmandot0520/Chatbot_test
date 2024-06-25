@@ -14,33 +14,33 @@ interface IUserActionProps {
 
 const UserAction: React.FC<IUserActionProps> = (props) => {
   return (
-    <div>
-      <div>
-        <Title
-          title="Chatbot"
-          textColor="#000000"
-          textSize={50}
-        />
-      </div>
-      <div className="flex gap-4 mb-4">
-        <span>
+    <div className="flex">
+      {/* <Title
+        title="Chatbot"
+        textColor="#000000"
+        textSize={30}
+      /> */}
+      <div className="flex flex-row gap-4 w-[800px] justify-center">
+        <div className="mt-2">
           <QuestionInput
-            width={500}
+            width={600}
             changeUserMessage={props.changeUserMessage}
             changeMessages={props.changeMessages}
             handleSubmit={props.handleSubmit}
           />
-        </span>
-        <span>
+        </div>
+
+        <div>
           <ResultButton
             // buttonName="Result"
             // width={100}
-            // textColor="#fff"
+            // textColor="#ffff"
             // backgroundColor="#374234"
             changeMessages={props.changeMessages}
             handleSubmit={props.handleSubmit}
           />
-        </span>
+        </div>
+
       </div>
     </div>
   );
