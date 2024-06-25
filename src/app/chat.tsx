@@ -62,7 +62,7 @@ const Chatting: React.FC = () => {
                 textSize={30}
 
             />
-            <div className="w-1/2 h-[600px] bg-slate-100 overflow-y-auto rounded-xl">
+            <div className="w-1/2 h-[500px] bg-slate-100 overflow-y-auto rounded-xl">
                 {messages.map((message: IMessage, index: number) => (
                     <ChatResult
                         key={index}
