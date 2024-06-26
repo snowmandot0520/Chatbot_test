@@ -1,10 +1,9 @@
-"use client"
+"use client";
 
-import React from "react"
-import Title from "../atoms/title"
-import ResultButton from "../atoms/resultbutton"
-import QuestionInput from "../atoms/questionInput"
-
+import React from "react";
+import Title from "../atoms/title";
+import ResultButton from "../atoms/resultbutton";
+import QuestionInput from "../atoms/questionInput";
 
 interface IUserActionProps {
   changeUserMessage: (userMessage: string) => void;
@@ -14,16 +13,16 @@ interface IUserActionProps {
 
 const UserAction: React.FC<IUserActionProps> = (props) => {
   return (
-    <div className="flex">
+    <div className="flex justify-center">
       {/* <Title
         title="Chatbot"
         textColor="#000000"
         textSize={30}
       /> */}
-      <div className="flex flex-row gap-4 w-[800px] justify-center">
+      <div className="flex flex-row gap-4 justify-center">
         <div className="mt-2">
           <QuestionInput
-            width={600}
+            width={800}
             changeUserMessage={props.changeUserMessage}
             changeMessages={props.changeMessages}
             handleSubmit={props.handleSubmit}
@@ -40,10 +39,9 @@ const UserAction: React.FC<IUserActionProps> = (props) => {
             handleSubmit={props.handleSubmit}
           />
         </div>
-
       </div>
     </div>
   );
-}
+};
 
 export default UserAction;
