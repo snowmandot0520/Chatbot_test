@@ -63,7 +63,7 @@ const Chatting: React.FC = () => {
         <div className="min-w-full min-h-screen">
             <div className="flex flex-col min-w-full max-h-screen items-center p-4">
                 <TItle title="Chatbot" textColor="#000000" textSize={30} />
-                <div className="w-1/2 h-[800px] bg-slate-100 overflow-y-auto rounded-xl">
+                <div className="w-1/2 h-[600px] bg-slate-100 overflow-y-auto rounded-xl">
                     {messages.map((message: IMessage, index: number) => (
                         <ChatResult
                             key={index}
@@ -74,7 +74,7 @@ const Chatting: React.FC = () => {
                     <div ref={messagesEndRef} />
                 </div>
             </div>
-            <div className="justify-center pb-56 bg-transparent">
+            <div className="justify-center bg-transparent">
                 <UserAction
                     changeUserMessage={changeUserMessage}
                     changeMessages={changeMessages}
