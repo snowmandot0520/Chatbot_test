@@ -10,7 +10,7 @@ interface IBotResponseProps {
 const BotResponse: React.FC<IBotResponseProps> = (props) => {
     return (
         <div className="flex justify-end gap-4 items-start p-4 mb-2 rounded-md">
-            <span className="w-[70%] flex justify-end bg-slate-500">
+            <span className="w-[70%] flex justify-end">
                 <QuestionOrAnswer
                     text={props.botText}
                 />

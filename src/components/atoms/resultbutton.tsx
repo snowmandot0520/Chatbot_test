@@ -22,8 +22,6 @@ const ResultButton: React.FC<IResultButtonProps> = (props) => {
         <button onClick={() => handleClick()}>
             <IconArrowUp className="absolute h-8 w-8 hover:cursor-pointer rounded-full p-1 bg-slate-600 text-black hover:opacity-80" />
         </button>
-
-
     );
 };
 
